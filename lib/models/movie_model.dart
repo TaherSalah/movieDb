@@ -52,7 +52,7 @@ class MovieModels {
       popularity: json['popularity'] ?? '',
       releaseDate: json['release_date'] ?? '',
       video: json['video'] ?? true,
-      voteAverage: json['vote_average'] ?? 0,
+      voteAverage: json['vote_average']  + 0.0,
       voteCount: json['vote_count'] ?? 0,
       name: json['name'] ?? '',
       originalName: json['original_name'] ?? '',

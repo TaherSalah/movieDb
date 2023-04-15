@@ -20,6 +20,7 @@ dependencies:
   flutter_bloc:
   dio:
   url_launcher:
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:

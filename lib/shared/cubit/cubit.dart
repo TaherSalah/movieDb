@@ -5,6 +5,7 @@ import 'package:movie_db/models/movie_model.dart';
 import 'package:movie_db/shared/cubit/states.dart';
 import 'package:movie_db/shared/network/remote/dio_helper.dart';
 
+import '../../models/details_model.dart';
 import '../../screens/home/home_screen.dart';
 import '../../screens/movies/movies_screen.dart';
 import '../../screens/person/person_screen.dart';
@@ -27,18 +28,6 @@ class MovieCubit extends Cubit<MovieStates> {
   ];
 
   void changeBottomNavBar(int index) {
-    // if (index == 1) {
-    //   getScienceData();
-    // }
-    // if (index == 2) {
-    //   getSportsData();
-    // }
-    // if (index == 3) {
-    //   getHealthData();
-    // }
-    // if (index == 4) {
-    //   getTechnologyData();
-    // }
     currentIndex = index;
     emit(BottomNavBarNewsState());
   }
@@ -151,7 +140,7 @@ class MovieCubit extends Cubit<MovieStates> {
     try {
       emit(GetMoviePersonLoadingState());
       Response response =
-          await Dio().get('$baseUrl/movie/person?api_key=$apiKey');
+          await Dio().get('$baseUrl/person/popular?api_key=$apiKey');
       for (var item in response.data['results']) {
         personResults.add(MovieModels.fromJson(item));
         emit(GetMoviePersonSuccessState());
@@ -163,4 +152,27 @@ class MovieCubit extends Cubit<MovieStates> {
     return personResults;
   }
 ///// End get movie Person data ////
+
+// /// Start get movie Person data ////
+//   List<DetailsMovieModels> detailsResults = [];
+//
+//   Future<List<DetailsMovieModels>> fetchDetails(int id) async {
+//     try {
+//       emit(GetMovieDetailsLoadingState());
+//       Response response =
+//       await Dio().get('$baseUrl/movie/$id?api_key=$apiKey');
+//       for (var item in response.data['results']) {
+//         detailsResults.add(DetailsMovieModels.fromJson(item));
+//         emit(GetMovieDetailsSuccessState());
+//       }
+//     } catch (e) {
+//       print(e.toString());
+//       emit(GetMovieDetailsErrorState(e.toString()));
+//     }
+//     return detailsResults;
+//   }
+///// End get movie Person data ////
+
+
+
 }

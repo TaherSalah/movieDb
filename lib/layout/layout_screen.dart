@@ -20,9 +20,6 @@ class _LayoutScreenState extends State<LayoutScreen> {
       builder: (context, state) {
         var cubit = BlocProvider.of<MovieCubit>(context);
         return Scaffold(
-          appBar: AppBar(
-            title: const Text('Movie DB'),
-          ),
           body: cubit.screens[cubit.currentIndex],
           bottomNavigationBar: const DefBottomNavBar(),
         );

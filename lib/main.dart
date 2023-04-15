@@ -18,10 +18,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-
-      create: (context) => MovieCubit()..fetchTrendingData(),
+      create: (context) => MovieCubit()..fetchPopular()..fetchTopRated(),
       child: MaterialApp(
-        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.green,
         ),
@@ -30,4 +29,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

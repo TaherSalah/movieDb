@@ -88,4 +88,17 @@ class GetMoviePersonErrorState extends MovieStates {
   GetMoviePersonErrorState(this.error);
 }
 
-/////// End  movie Person  state ////////
+/////// End  movie Person  state ///////
+
+// ////// start  movie Details  state ////////
+class GetMovieDetailsLoadingState extends MovieStates {}
+
+class GetMovieDetailsSuccessState extends MovieStates {}
+
+class GetMovieDetailsErrorState extends MovieStates {
+  final String error;
+
+  GetMovieDetailsErrorState(this.error);
+}
+
+/////// End  movie Details  state ////////
