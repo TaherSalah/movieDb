@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_db/shared/componts/color.dart';
 import 'package:movie_db/shared/cubit/cubit.dart';
 import 'package:movie_db/shared/cubit/states.dart';
 
@@ -20,6 +21,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
       builder: (context, state) {
         var cubit = BlocProvider.of<MovieCubit>(context);
         return Scaffold(
+          backgroundColor: ColorStyle.blackColor,
           body: cubit.screens[cubit.currentIndex],
           bottomNavigationBar: const DefBottomNavBar(),
         );
