@@ -20,8 +20,8 @@ class MovieCubit extends Cubit<MovieStates> {
 
   int currentIndex = 0;
   List<Widget> screens = [
-    HomeScreen(),
-    const TrendingScreen(),
+    const HomeScreen(),
+    TrendingScreen(),
     const TvScreen(),
     const MovieScreen(),
     const PepoleScreen(),
@@ -191,6 +191,26 @@ class MovieCubit extends Cubit<MovieStates> {
       emit(GetTvAiringTodayErrorState(e.toString()));
     }
     return airingTvResults;
+  }
+
+///// End get movie AiringTv data ////
+// /// Start get Tv data ////
+  List<MovieModels> TvResults = [];
+
+  Future<List<MovieModels>> fetchTv() async {
+    try {
+      emit(GetTvLoadingState());
+      Response response =
+          await Dio().get('$baseUrl/tv/top_rated?api_key=$apiKey');
+      for (var item in response.data['results']) {
+        TvResults.add(MovieModels.fromJson(item));
+        emit(GetTvSuccessState());
+      }
+    } catch (e) {
+      print(e.toString());
+      emit(GetTvErrorState(e.toString()));
+    }
+    return TvResults;
   }
 
 ///// End get movie AiringTv data ////

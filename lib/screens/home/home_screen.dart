@@ -7,9 +7,14 @@ import 'package:movie_db/shared/componts/constance.dart';
 import '../../shared/cubit/cubit.dart';
 import '../../shared/cubit/states.dart';
 import '../../shared/widget/main_title.dart';
+import '../../shared/widget/now_playing_item_builder.dart';
 import '../../shared/widget/popular.dart';
+import '../../shared/widget/popular_item_builder.dart';
 import '../../shared/widget/search_bar.dart';
 import '../../shared/widget/top_rated.dart';
+import '../../shared/widget/top_trending_item_builder.dart';
+import '../../shared/widget/tv_airing_item_builder.dart';
+import '../../shared/widget/up_coming_item_builder.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -34,12 +39,19 @@ class _HomeScreenState extends State<HomeScreen> {
     return BlocConsumer<MovieCubit, MovieStates>(
       listener: (context, state) {},
       builder: (context, state) {
-        var topRatedList = BlocProvider.of<MovieCubit>(context).topRatedResults;
-        var popularList = BlocProvider.of<MovieCubit>(context).popularResults;
-        var nowPlayingList =
-            BlocProvider.of<MovieCubit>(context).nowPlayingResults;
-        var upList = BlocProvider.of<MovieCubit>(context).upcomingResults;
-        var airingList = BlocProvider.of<MovieCubit>(context).airingTvResults;
+        var topRatedList = BlocProvider
+            .of<MovieCubit>(context)
+            .topRatedResults;
+        var popularList = BlocProvider
+            .of<MovieCubit>(context)
+            .popularResults;
+
+        var upList = BlocProvider
+            .of<MovieCubit>(context)
+            .upcomingResults;
+        var airingList = BlocProvider
+            .of<MovieCubit>(context)
+            .airingTvResults;
 
         if (state is GetTopRatedSuccessState ||
             state is GetTvAiringTodayLoadingState ||
@@ -59,172 +71,68 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 15,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 200,
-                      child: ListView.separated(
-                        physics: BouncingScrollPhysics(),
-                        separatorBuilder: (context, index) => SizedBox(
-                          width: 8,
-                        ),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: topRatedList.length,
-                        itemBuilder: (context, index) {
-                          return Row(
-                            children: [
-                              Column(
-                                children: [
-                                  Container(
-                                    height: 200,
-                                    child: FadeInImage(
-                                        height: 200,
-                                        width: 340,
-                                        fit: BoxFit.cover,
-                                        placeholder: AssetImage(
-                                          'assets/images/loading-animation.gif',
-                                        ),
-                                        image: NetworkImage(
-                                          '$imageUrl${topRatedList[index].posterPath}',
-                                        )),
-                                  ),
-                                ],
-                              )
-                            ],
-                          );
-                        },
-                      ),
+                      child: TopTrendingBuilder(),
                     ),
                     mainTitle(startTitle: 'Popular'),
-                    SizedBox(
+                    const SizedBox(
                       height: 200,
-                      child: ListView.separated(
-                        physics: BouncingScrollPhysics(),
-                        separatorBuilder: (context, index) => SizedBox(
-                          width: 8,
-                        ),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: popularList.length,
-                        itemBuilder: (context, index) {
-                          return Row(
-                            children: [
-                              Container(
-                                  height: 200,
-                                  child: FadeInImage(
-                                      height: 200,
-                                      fit: BoxFit.cover,
-                                      placeholder: const AssetImage(
-                                        'assets/images/loading-animation.gif',
-                                      ),
-                                      image: NetworkImage(
-                                        '$imageUrl${popularList[index].posterPath}',
-                                      )))
-                            ],
-                          );
-                        },
-                      ),
+                      child: PopularBuilder(),
                     ),
                     mainTitle(startTitle: 'TV Airing'),
-                    SizedBox(
+                    const SizedBox(
                       height: 200,
-                      child: ListView.separated(
-                        physics: BouncingScrollPhysics(),
-                        separatorBuilder: (context, index) => SizedBox(
-                          width: 8,
-                        ),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: airingList.length,
-                        itemBuilder: (context, index) {
-                          return Row(
-                            children: [
-                              SizedBox(
-                                  height: 200,
-                                  child: FadeInImage(
-                                      height: 200,
-                                      fit: BoxFit.cover,
-                                      placeholder: const AssetImage(
-                                        'assets/images/loading-animation.gif',
-                                      ),
-                                      image: NetworkImage(
-                                        '$imageUrl${airingList[index].posterPath}',
-                                      )))
-                            ],
-                          );
-                        },
-                      ),
+                      child: TvAiringBuilder(),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     mainTitle(startTitle: 'Now Playing'),
-                    SizedBox(
+                    const SizedBox(
                       height: 200,
-                      child: ListView.separated(
-                        physics: BouncingScrollPhysics(),
-                        separatorBuilder: (context, index) => SizedBox(
-                          width: 8,
-                        ),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: nowPlayingList.length,
-                        itemBuilder: (context, index) {
-                          return Column(
-                            children: [
-                              Row(
-                                children: [
-                                  SizedBox(
-                                      height: 200,
-                                      child: FadeInImage(
-                                          height: 200,
-                                          width: 450,
-                                          fit: BoxFit.cover,
-                                          placeholder: const AssetImage(
-                                            'assets/images/loading-animation.gif',
-                                          ),
-                                          image: NetworkImage(
-                                            '$imageUrl${nowPlayingList[index].posterPath}',
-                                          )))
-                                ],
-                              ),
-                            ],
-                          );
-                        },
-                      ),
+                      child: NowPlayingBuilder(),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    mainTitle(startTitle: 'Up  Coming'),
-                    SizedBox(
+                    mainTitle(startTitle: 'Up Coming'),
+                    const SizedBox(
                       height: 200,
-                      child: ListView.separated(
-                        physics: const BouncingScrollPhysics(),
-                        separatorBuilder: (context, index) => SizedBox(
-                          width: 8,
-                        ),
+                      child: UpComingBuilder(),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    mainTitle(startTitle: 'Top Rated'),
+
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height,
+                      child: GridView.builder(
                         shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: upList.length,
+                        scrollDirection: Axis.vertical,
+                        itemCount: topRatedList.length,
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 2,
+                          mainAxisSpacing: 2,
+                        ),
                         itemBuilder: (context, index) {
-                          return Row(
-                            children: [
-                              SizedBox(
+                          return SizedBox(
+                              height: 200,
+                              child: FadeInImage(
                                   height: 200,
-                                  child: FadeInImage(
-                                      height: 200,
-                                      fit: BoxFit.cover,
-                                      placeholder: const AssetImage(
-                                        'assets/images/loading-animation.gif',
-                                      ),
-                                      image: NetworkImage(
-                                        '$imageUrl${upList[index].posterPath}',
-                                      )))
-                            ],
-                          );
+                                  width: 450,
+                                  fit: BoxFit.cover,
+                                  placeholder: const AssetImage(
+                                    'assets/images/loading-animation.gif',
+                                  ),
+                                  image: NetworkImage(
+                                    '$imageUrl${topRatedList[index].posterPath}',
+                                  )));
                         },
                       ),
-                    ),
+                    )
                   ],
                 ),
               ));
