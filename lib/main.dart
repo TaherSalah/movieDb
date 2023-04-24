@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MovieCubit()..fetchPopular()..fetchTopRated(),
+      create: (context) => MovieCubit()..fetchPopular()..fetchTopRated()..fetchAiringTv()..fetchNowPlaying()..fetchUpcoming(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

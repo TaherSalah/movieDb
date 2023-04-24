@@ -151,28 +151,47 @@ class MovieCubit extends Cubit<MovieStates> {
     }
     return personResults;
   }
+
 ///// End get movie Person data ////
 
-// /// Start get movie Person data ////
-//   List<DetailsMovieModels> detailsResults = [];
-//
-//   Future<List<DetailsMovieModels>> fetchDetails(int id) async {
-//     try {
-//       emit(GetMovieDetailsLoadingState());
-//       Response response =
-//       await Dio().get('$baseUrl/movie/$id?api_key=$apiKey');
-//       for (var item in response.data['results']) {
-//         detailsResults.add(DetailsMovieModels.fromJson(item));
-//         emit(GetMovieDetailsSuccessState());
-//       }
-//     } catch (e) {
-//       print(e.toString());
-//       emit(GetMovieDetailsErrorState(e.toString()));
-//     }
-//     return detailsResults;
-//   }
-///// End get movie Person data ////
+// / Start get movie Person data ////
+  List<DetailsMovieModels> detailsResults = [];
 
+  Future<List<DetailsMovieModels>> fetchDetails(int id) async {
+    try {
+      emit(GetMovieDetailsLoadingState());
+      Response response = await Dio().get('$baseUrl/movie/$id?api_key=$apiKey');
+      for (var item in response.data['results']) {
+        detailsResults.add(DetailsMovieModels.fromJson(item));
+        emit(GetMovieDetailsSuccessState());
+      }
+    } catch (e) {
+      print(e.toString());
+      emit(GetMovieDetailsErrorState(e.toString()));
+    }
+    return detailsResults;
+  }
 
+// / End get movie Person data ////
 
+///// Start get  AiringTv data ////
+  List<MovieModels> airingTvResults = [];
+
+  Future<List<MovieModels>> fetchAiringTv() async {
+    try {
+      emit(GetTvAiringTodayLoadingState());
+      Response response =
+          await Dio().get('$baseUrl/tv/airing_today?api_key=$apiKey');
+      for (var item in response.data['results']) {
+        airingTvResults.add(MovieModels.fromJson(item));
+        emit(GetTvAiringTodaySuccessState());
+      }
+    } catch (e) {
+      print(e.toString());
+      emit(GetTvAiringTodayErrorState(e.toString()));
+    }
+    return airingTvResults;
+  }
+
+///// End get movie AiringTv data ////
 }

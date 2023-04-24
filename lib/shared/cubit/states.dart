@@ -102,3 +102,16 @@ class GetMovieDetailsErrorState extends MovieStates {
 }
 
 /////// End  movie Details  state ////////
+
+/////// start  Tv airing_today  state ////////
+class GetTvAiringTodayLoadingState extends MovieStates {}
+
+class GetTvAiringTodaySuccessState extends MovieStates {}
+
+class GetTvAiringTodayErrorState extends MovieStates {
+  final String error;
+
+  GetTvAiringTodayErrorState(this.error);
+}
+
+/////// End  Tv airing_today  state ////////
