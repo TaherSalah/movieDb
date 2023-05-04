@@ -1,4 +1,5 @@
-import 'package:movie_db/models/movie_model.dart';
+
+import '../../models/movie_model.dart';
 
 abstract class MovieStates {}
 

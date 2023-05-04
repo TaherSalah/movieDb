@@ -1,11 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_db/shared/cubit/cubit.dart';
-import 'package:movie_db/shared/cubit/states.dart';
+import 'package:movie/shared/cubit/states.dart';
+
 
 import '../componts/color.dart';
 import '../componts/constance.dart';
+import '../cubit/cubit.dart';
 
 class PopularMovie extends StatefulWidget {
   const PopularMovie({Key? key}) : super(key: key);

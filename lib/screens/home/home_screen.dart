@@ -1,17 +1,14 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_db/shared/componts/color.dart';
-import 'package:movie_db/shared/componts/constance.dart';
+import '../../shared/componts/color.dart';
+import '../../shared/componts/constance.dart';
 import '../../shared/cubit/cubit.dart';
 import '../../shared/cubit/states.dart';
 import '../../shared/widget/main_title.dart';
 import '../../shared/widget/now_playing_item_builder.dart';
-import '../../shared/widget/popular.dart';
 import '../../shared/widget/popular_item_builder.dart';
 import '../../shared/widget/search_bar.dart';
-import '../../shared/widget/top_rated.dart';
 import '../../shared/widget/top_trending_item_builder.dart';
 import '../../shared/widget/tv_airing_item_builder.dart';
 import '../../shared/widget/up_coming_item_builder.dart';
@@ -39,22 +36,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return BlocConsumer<MovieCubit, MovieStates>(
       listener: (context, state) {},
       builder: (context, state) {
-        var topRatedList = BlocProvider
-            .of<MovieCubit>(context)
-            .topRatedResults;
-        var popularList = BlocProvider
-            .of<MovieCubit>(context)
-            .popularResults;
-
-        var upList = BlocProvider
-            .of<MovieCubit>(context)
-            .upcomingResults;
-        var airingList = BlocProvider
-            .of<MovieCubit>(context)
-            .airingTvResults;
+        var topRatedList = BlocProvider.of<MovieCubit>(context).topRatedResults;
+        // var popularList = BlocProvider.of<MovieCubit>(context).popularResults;
+        //
+        // var upList = BlocProvider.of<MovieCubit>(context).upcomingResults;
+        // var airingList = BlocProvider.of<MovieCubit>(context).airingTvResults;
 
         if (state is GetTopRatedSuccessState ||
-            state is GetTvAiringTodayLoadingState ||
+            state is GetTvAiringTodaySuccessState ||
             state is GetPopularSuccessState ||
             state is GetUpComingSuccessState) {
           return Scaffold(
@@ -80,11 +69,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 200,
                       child: PopularBuilder(),
                     ),
-                    mainTitle(startTitle: 'TV Airing'),
-                    const SizedBox(
-                      height: 200,
-                      child: TvAiringBuilder(),
-                    ),
                     const SizedBox(
                       height: 10,
                     ),
@@ -103,19 +87,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const SizedBox(
                       height: 10,
+
                     ),
                     mainTitle(startTitle: 'Top Rated'),
-
                     SizedBox(
-                      height: MediaQuery.of(context).size.height,
+
+                      height: 400,
                       child: GridView.builder(
+
+                        reverse: true,
+                        controller: ScrollController(),
                         shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
                         itemCount: topRatedList.length,
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
-                          crossAxisSpacing: 2,
-                          mainAxisSpacing: 2,
+                          crossAxisSpacing:10,
+
+                          mainAxisSpacing: 10,
                         ),
                         itemBuilder: (context, index) {
                           return SizedBox(

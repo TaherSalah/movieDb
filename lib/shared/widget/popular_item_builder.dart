@@ -21,6 +21,7 @@ class _PopularBuilderState extends State<PopularBuilder> {
         width: 8,
       ),
       shrinkWrap: true,
+      reverse: true,
       scrollDirection: Axis.horizontal,
       itemCount: popularList.length,
       itemBuilder: (context, index) {

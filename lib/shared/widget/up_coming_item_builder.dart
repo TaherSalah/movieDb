@@ -23,6 +23,7 @@ class _UpComingBuilderState extends State<UpComingBuilder> {
         width: 8,
       ),
       shrinkWrap: true,
+      reverse: true,
       scrollDirection: Axis.horizontal,
       itemCount: upComingList.length,
       itemBuilder: (context, index) {

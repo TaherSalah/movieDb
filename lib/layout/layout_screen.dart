@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_db/shared/componts/color.dart';
-import 'package:movie_db/shared/cubit/cubit.dart';
-import 'package:movie_db/shared/cubit/states.dart';
 
+
+import '../shared/componts/color.dart';
 import '../shared/componts/ui_componts.dart';
+import '../shared/cubit/cubit.dart';
+import '../shared/cubit/states.dart';
 
 class LayoutScreen extends StatefulWidget {
   const LayoutScreen({Key? key}) : super(key: key);

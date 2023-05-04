@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_db/shared/cubit/states.dart';
 
 import '../componts/color.dart';
 import '../componts/constance.dart';
 import '../cubit/cubit.dart';
+import '../cubit/states.dart';
 
 class TopRatedMovie extends StatefulWidget {
   const TopRatedMovie({Key? key}) : super(key: key);

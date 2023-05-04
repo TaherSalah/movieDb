@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_db/shared/componts/color.dart';
+
+import '../componts/color.dart';
 
 Widget mainTitle({required String startTitle, String? endTitle }) {
   return Padding(

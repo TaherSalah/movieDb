@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_db/shared/cubit/cubit.dart';
-import 'package:movie_db/shared/cubit/states.dart';
+
+import '../cubit/cubit.dart';
+
 
 class DefBottomNavBar extends StatefulWidget {
   const DefBottomNavBar({Key? key}) : super(key: key);
@@ -36,7 +37,7 @@ class _DefBottomNavBarState extends State<DefBottomNavBar> {
             icon: Icon(Icons.trending_up_rounded), label: 'Trending'),
         BottomNavigationBarItem(icon: Icon(Icons.tv), label: 'TV'),
         BottomNavigationBarItem(icon: Icon(Icons.movie), label: 'Movies'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Pepole'),
+        BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
       ],
     );
   }

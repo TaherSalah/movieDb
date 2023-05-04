@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart%20';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_db/models/movie_model.dart';
-import 'package:movie_db/shared/cubit/states.dart';
-import 'package:movie_db/shared/network/remote/dio_helper.dart';
+import 'package:movie/shared/cubit/states.dart';
+
 
 import '../../models/details_model.dart';
+import '../../models/movie_model.dart';
 import '../../screens/home/home_screen.dart';
 import '../../screens/movies/movies_screen.dart';
 import '../../screens/person/person_screen.dart';
