@@ -13,6 +13,9 @@ dependencies:
   flutter_bloc:
   dio:
   url_launcher:
+  table_calendar:
+  babstrap_settings_screen:
+  flutter_settings_screens:
   carousel_slider: ^4.2.1
 dev_dependencies:
   flutter_test:

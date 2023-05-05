@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.10.0"
+  babstrap_settings_screen:
+    dependency: "direct main"
+    description:
+      name: babstrap_settings_screen
+      sha256: "02457a286837d3b701db4b317a08c24b185cf5945a734122c143e7ce78030399"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.5+1"
   bloc:
     dependency: transitive
     description:
@@ -102,6 +110,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
+  flutter_material_color_picker:
+    dependency: transitive
+    description:
+      name: flutter_material_color_picker
+      sha256: "64432c3b13bbcc6f428bae9d2e75b1b3da1e6f3219979e08a3bd9f176781d9f2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0+2"
+  flutter_settings_screens:
+    dependency: "direct main"
+    description:
+      name: flutter_settings_screens
+      sha256: "17dc7d069edb6d989fc8546f30639e8f90c20b951803d607f51680c1ddff11de"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0+0.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -120,6 +144,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.18.1"
   js:
     dependency: transitive
     description:
@@ -176,6 +208,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.2"
+  path_provider:
+    dependency: transitive
+    description:
+      name: path_provider
+      sha256: "7f141b48e3131bfda0f6343475f0521ebb50becf81dc56eec3dec0cd9eef8766"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.6.1"
+  platform:
+    dependency: transitive
+    description:
+      name: platform
+      sha256: "2d03e4330ae22fc7fc0dd38c1fc6d0a9dc7ff10d7deea6dbb2583f7e5c053453"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.1"
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -192,6 +240,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.5"
+  rxdart:
+    dependency: transitive
+    description:
+      name: rxdart
+      sha256: "79022a7d6ab5f7d00458ed74c121a75f38c88b1b3fa4bb053f23110b7a2e1241"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.22.6"
+  simple_gesture_detector:
+    dependency: transitive
+    description:
+      name: simple_gesture_detector
+      sha256: "86d08f85f1f58583b7b4b941d989f48ea6ce08c1724a1d10954a277c2ec36592"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -229,6 +293,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  table_calendar:
+    dependency: "direct main"
+    description:
+      name: table_calendar
+      sha256: "1e3521a3e6d3fc7f645a58b135ab663d458ab12504f1ea7f9b4b81d47086c478"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.9"
   term_glyph:
     dependency: transitive
     description:

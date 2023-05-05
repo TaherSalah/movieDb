@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 200,
                       child: TopTrendingBuilder(),
                     ),
-                    mainTitle(startTitle: 'Popular'),
+                    // mainTitle(startTitle: 'Popular'),
                     const SizedBox(
                       height: 200,
                       child: PopularBuilder(),

@@ -37,7 +37,6 @@ class _DefBottomNavBarState extends State<DefBottomNavBar> {
             icon: Icon(Icons.trending_up_rounded), label: 'Trending'),
         BottomNavigationBarItem(icon: Icon(Icons.tv), label: 'TV'),
         BottomNavigationBarItem(icon: Icon(Icons.movie), label: 'Movies'),
-        BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
       ],
     );
   }

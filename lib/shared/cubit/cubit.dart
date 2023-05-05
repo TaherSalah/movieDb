@@ -8,7 +8,6 @@ import '../../models/details_model.dart';
 import '../../models/movie_model.dart';
 import '../../screens/home/home_screen.dart';
 import '../../screens/movies/movies_screen.dart';
-import '../../screens/person/person_screen.dart';
 import '../../screens/trending/trending_screen.dart';
 import '../../screens/tv/tv_screen.dart';
 import '../componts/constance.dart';
@@ -24,7 +23,6 @@ class MovieCubit extends Cubit<MovieStates> {
     TrendingScreen(),
     const TvScreen(),
     const MovieScreen(),
-    const PepoleScreen(),
   ];
 
   void changeBottomNavBar(int index) {
