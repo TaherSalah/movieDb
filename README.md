@@ -1,6 +1,6 @@
-# movie
+# movie_db_app
 
-A new Flutter project.
+movie db app flutter with provider
 
 ## Getting Started
 

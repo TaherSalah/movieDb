@@ -1,7 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.movie">
-   <application
-        android:label="movie"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
+        android:label="movie_db_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

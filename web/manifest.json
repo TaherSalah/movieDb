@@ -1,11 +1,11 @@
 {
-    "name": "movie",
-    "short_name": "movie",
+    "name": "movie_db_app",
+    "short_name": "movie_db_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "movie db app flutter with provider",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
