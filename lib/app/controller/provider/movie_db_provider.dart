@@ -11,7 +11,7 @@ class MovieDbProvider extends ChangeNotifier {
     try {
       isLoading = true;
       notifyListeners();
-      movieList = await movieDbServices.getMovieData();
+      movieList = await movieDbServices.getMovieData('movie');
       isLoading = false;
       notifyListeners();
     } on Exception catch (e) {
