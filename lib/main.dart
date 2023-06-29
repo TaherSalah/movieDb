@@ -1,11 +1,15 @@
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_db_app/app/controller/provider/movie_db_provider.dart';
 import 'package:movie_db_app/app/views/home.dart';
 import 'package:provider/provider.dart';
 
-void main()async {
+void main() async {
   runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await FastCachedImageConfig.init(clearCacheAfter: const Duration(seconds: 10));
 }
 
 class MyApp extends StatelessWidget {
@@ -19,18 +23,17 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
-        return  ChangeNotifierProvider(
-          create: (context) => MovieDbProvider()..getMovieData(),
+        return ChangeNotifierProvider(
+          create: (context) => MovieDbProvider()..getMovieData()..getTvData()..getNowPlayingData(),
           child: MaterialApp(
             theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
+                useMaterial3: true,
+                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)
+                    .copyWith(background: Colors.black)),
             home: const Home(),
           ),
         );
       },
-
     );
   }
 }
