@@ -28,8 +28,7 @@ class MyApp extends StatelessWidget {
           child: MaterialApp(
             theme: ThemeData(
                 useMaterial3: true,
-                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)
-                    .copyWith(background: Colors.black)),
+               ),
             home: const Home(),
           ),
         );
