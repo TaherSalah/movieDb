@@ -13,7 +13,7 @@ class MovieDbProvider extends ChangeNotifier {
     try {
       isLoading = true;
       notifyListeners();
-      movieList = await movieDbServices.getMovieData('movie');
+      movieList = await movieDbServices.getMovieData('movie','popular');
       isLoading = false;
       notifyListeners();
     } on Exception catch (e) {
@@ -25,7 +25,7 @@ class MovieDbProvider extends ChangeNotifier {
     try {
       isLoading = true;
       notifyListeners();
-      tvList = await movieDbServices.getMovieData('tv');
+      tvList = await movieDbServices.getMovieData('tv',"top_rated");
       isLoading = false;
       notifyListeners();
     } on Exception catch (e) {
@@ -37,7 +37,7 @@ class MovieDbProvider extends ChangeNotifier {
     try {
       isLoading = true;
       notifyListeners();
-      nowPlayingList = await movieDbServices.getMovieData('now_playing');
+      nowPlayingList = await movieDbServices.getMovieData('movie','now_playing');
       isLoading = false;
       notifyListeners();
     } on Exception catch (e) {

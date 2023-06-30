@@ -5,9 +5,9 @@ import '../shard/constanc/url.dart';
 
 class MovieDbServices {
   static final Dio dio = Dio();
-    getMovieData(String movieType) async {
+    getMovieData(String movieType,String types) async {
     try {
-      final responce = await dio.get('https://api.themoviedb.org/3/$movieType/popular?$apiKey');
+      final responce = await dio.get('https://api.themoviedb.org/3/$movieType/$types?$apiKey');
       if (responce.statusCode == 200) {
         MovieModel movieModel   = MovieModel.fromJson(responce.data);
         return movieModel.results;

@@ -5,6 +5,8 @@ import 'package:movie_db_app/app/controller/provider/movie_db_provider.dart';
 import 'package:movie_db_app/app/views/home.dart';
 import 'package:provider/provider.dart';
 
+import 'app/views/main_layout.dart';
+
 void main() async {
   runApp(const MyApp());
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
                 useMaterial3: true,
                ),
-            home: const Home(),
+            home: MainLayout(),
           ),
         );
       },
